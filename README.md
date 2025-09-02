@@ -1,4 +1,4 @@
-# RSpec:Reading Failures & Debugging Specs: Turning Red into Green (and Laughs)
+# RSpec: Reading Failures & Debugging Specs: Turning Red into Green (and Laughs)
 
 If you’ve ever seen a wall of red text in your terminal and thought, “Uh oh, what did I break?”—congratulations, you’re a real developer! In this lesson, we’ll demystify RSpec’s output, show you how to read failures, and teach you how to use those failures to become a bug-squashing superhero. We’ll go step by step, with lots of examples, analogies, and encouragement. Debugging is a skill, and you’re about to level up!
 
