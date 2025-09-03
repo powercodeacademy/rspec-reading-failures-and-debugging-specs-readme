@@ -42,7 +42,8 @@ RSpec.describe Recipe do
 
 
   it "fails if ingredient is missing" do
-    expect(recipe.ingredient_names).to include("Milk") # Fix this spec
+    recipe.add_ingredient(milk)
+    expect(recipe.ingredient_names).to include("Milk")
   end
 
   it "fails if wrong quantity" do
