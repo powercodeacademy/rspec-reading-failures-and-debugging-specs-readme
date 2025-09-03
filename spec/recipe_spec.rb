@@ -58,7 +58,7 @@ RSpec.describe Recipe do
 
   it "fails if ingredient is present but with wrong unit" do
     recipe.add_ingredient(flour)
-    expect(flour.unit).to eq("grams") # Fix this spec
+    expect(flour.unit).to eq("cups")
   end
 
   it "fails if ingredient is present but off-by-one in quantity" do
