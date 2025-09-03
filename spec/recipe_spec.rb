@@ -48,7 +48,7 @@ RSpec.describe Recipe do
 
   it "fails if wrong quantity" do
     recipe.add_ingredient(milk)
-    expect(milk.quantity).to eq(2) # Fix this spec
+    expect(milk.quantity).to eq(1)
   end
 
   it "fails if ingredient is present but with wrong case" do
