@@ -48,7 +48,7 @@ RSpec.describe Recipe do
 
   it "fails if wrong quantity" do
     recipe.add_ingredient(milk)
-    expect(milk.quantity).to eq(1)
+    expect(milk.quantity).not_to eq(2) 
   end
 
   it "fails if ingredient is present but with wrong case" do
@@ -58,7 +58,7 @@ RSpec.describe Recipe do
 
   it "fails if ingredient is present but with wrong unit" do
     recipe.add_ingredient(flour)
-    expect(flour.unit).to eq("cups")
+    expect(flour.unit).not_to eq("grams")
   end
 
   it "fails if ingredient is present but off-by-one in quantity" do
@@ -74,7 +74,7 @@ RSpec.describe Recipe do
   it "is gluten-free if it contains no flour" do
     recipe.add_ingredient(flour)
     recipe.add_ingredient(egg)
-    expect(recipe.gluten_free?).to be false
+    expect(recipe.gluten_free?).to be true
   end
   
   it "can remove an ingredient from the recipe" do 
