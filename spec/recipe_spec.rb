@@ -68,7 +68,7 @@ RSpec.describe Recipe do
 
   it "fails if vegetarian? logic is misunderstood" do
     recipe.add_ingredient(Ingredient.new("Chicken", 1, "breast"))
-    expect(recipe.vegetarian?).to be true # Fix this spec
+    expect(recipe.vegetarian?).to be false # Fix this spec
   end
 
   it "is gluten-free if it contains no flour" do
