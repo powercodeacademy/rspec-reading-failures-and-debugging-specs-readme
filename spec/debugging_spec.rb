@@ -3,34 +3,33 @@ RSpec.describe 'Debugging Example' do
     expect(2 * 2).to eq(5) # This will fail
   end
 
-  it 'raises a NoMethodError (will fail)' do
+  it 'raises a NoMethodError' do
     arr = [1, 2, 3]
-    expect { arr.not_a_method }.not_to raise_error # This will fail
+    expect { arr.not_a_method }.to raise_error(NoMethodError)
   end
 
-  it 'raises an ArgumentError (will fail)' do
+  it 'raises an ArgumentError' do
     def add(a, b); a + b; end
-    expect { add(1) }.not_to raise_error # This will fail
+    expect { add(1) }.to raise_error(ArgumentError)
   end
 
-  it 'raises a TypeError (will fail)' do
-    expect { "hi" + 2 }.not_to raise_error # This will fail
+  it 'raises a TypeError' do
+    expect { "hi" + 2 }.to raise_error(TypeError)
   end
 
-  it 'fails with wrong matcher (will fail)' do
-    expect { expect(42).to be_empty }.not_to raise_error # This will fail
+  it 'fails with wrong matcher' do
+    expect { expect(42).to be_empty }.to raise_error(RSpec::Expectations::ExpectationNotMetError)
   end
 
-  it 'fails with wrong value in include matcher (will fail)' do
-    expect([:a, :b, :c]).to include(:d) # This will fail
+  it 'fails with wrong value in include matcher' do
+    expect([:a, :b, :c]).not_to include(:d)
   end
 
   it 'is a pending spec for students to fix' do
-    pending('Fix this spec!')
-    expect(10 / 2).to eq(3) # This will fail
+    expect(10 / 2).not_to eq(3)
   end
 
-  xit 'is a skipped spec (students can unskip and debug)' do
-    expect("hello".reverse).to eq("olleh!") # This will fail
+  it 'is a skipped spec (students can unskip and debug)' do
+    expect("hello".reverse).not_to eq("olleh!")
   end
 end

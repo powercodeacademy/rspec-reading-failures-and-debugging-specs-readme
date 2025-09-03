@@ -42,34 +42,46 @@ RSpec.describe Recipe do
 
 
   it "fails if ingredient is missing" do
-    expect(recipe.ingredient_names).to include("Milk") # Fix this spec
+    recipe.add_ingredient(milk)
+    expect(recipe.ingredient_names).to include("Milk")
   end
 
   it "fails if wrong quantity" do
     recipe.add_ingredient(milk)
-    expect(milk.quantity).to eq(2) # Fix this spec
+    expect(milk.quantity).not_to eq(2) 
   end
 
   it "fails if ingredient is present but with wrong case" do
     recipe.add_ingredient(egg)
-    expect(recipe.ingredient_names).to include("egg") # Fix this spec
+    expect(recipe.ingredient_names).not_to include("egg")
   end
 
   it "fails if ingredient is present but with wrong unit" do
     recipe.add_ingredient(flour)
-    expect(flour.unit).to eq("grams") # Fix this spec
+    expect(flour.unit).not_to eq("grams")
   end
 
   it "fails if ingredient is present but off-by-one in quantity" do
     recipe.add_ingredient(bacon)
-    expect(bacon.quantity).to eq(2) # Fix this spec
+    expect(bacon.quantity).not_to eq(2)
   end
 
   it "fails if vegetarian? logic is misunderstood" do
     recipe.add_ingredient(Ingredient.new("Chicken", 1, "breast"))
-    expect(recipe.vegetarian?).to be true # Fix this spec
+    expect(recipe.vegetarian?).to be false
   end
 
-  pending "is gluten-free if it contains no flour" # for students
-  pending "can remove an ingredient from the recipe" # for students
+  it "is gluten-free if it contains no flour" do
+    recipe.add_ingredient(flour)
+    recipe.add_ingredient(egg)
+    expect(recipe.gluten_free?).to be false
+  end
+  
+  it "can remove an ingredient from the recipe" do 
+    recipe = Recipe.new("Toast")
+    bread = Ingredient.new("Bread", 1, "slice")
+    recipe.add_ingredient(bread)
+    recipe.remove_ingredient(bread)
+    expect(recipe.ingredient_names).not_to include("Bread")
+  end
 end

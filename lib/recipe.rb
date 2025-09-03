@@ -17,4 +17,13 @@ class Recipe
   def ingredient_names
     @ingredients.map(&:name)
   end
+
+  def remove_ingredient(ingredient)
+    @ingredients.delete(ingredient)
+  end
+
+  def gluten_free?
+      !@ingredients.any? { |i| i.name.downcase =~ /flour/ }
+  end
+
 end
