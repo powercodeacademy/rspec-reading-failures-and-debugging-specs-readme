@@ -22,4 +22,8 @@ class Recipe
     @ingredients.delete(ingredient)
   end
 
+  def gluten_free?
+      !@ingredients.any? { |i| i.name.downcase =~ /flour/ }
+  end
+
 end

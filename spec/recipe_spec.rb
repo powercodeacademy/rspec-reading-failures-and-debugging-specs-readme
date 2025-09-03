@@ -71,7 +71,12 @@ RSpec.describe Recipe do
     expect(recipe.vegetarian?).to be true # Fix this spec
   end
 
-  pending "is gluten-free if it contains no flour" # for students
+  it "is gluten-free if it contains no flour" do
+    recipe.add_ingredient(flour)
+    recipe.add_ingredient(egg)
+    expect(recipe.gluten_free?).to be false
+  end
+  
   it "can remove an ingredient from the recipe" do 
     recipe = Recipe.new("Toast")
     bread = Ingredient.new("Bread", 1, "slice")
