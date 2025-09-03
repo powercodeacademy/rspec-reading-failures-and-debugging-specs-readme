@@ -72,5 +72,11 @@ RSpec.describe Recipe do
   end
 
   pending "is gluten-free if it contains no flour" # for students
-  pending "can remove an ingredient from the recipe" # for students
+  it "can remove an ingredient from the recipe" do 
+    recipe = Recipe.new("Toast")
+    bread = Ingredient.new("Bread", 1, "slice")
+    recipe.add_ingredient(bread)
+    recipe.remove_ingredient(bread)
+    expect(recipe.ingredient_names).not_to include("Bread")
+  end
 end
