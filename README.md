@@ -41,7 +41,7 @@ Finished in 0.01 seconds (files took 0.1 seconds to load)
 - **Yellow** = Pending/Skipped (a test is not implemented or was skipped)
 - **Green** = Passing (all tests passed)
 
-*Note: Your terminal will show these colors automatically!*
+_Note: Your terminal will show these colors automatically!_
 
 ---
 
@@ -85,22 +85,71 @@ Think of the red output as a big, friendly stop sign. It’s not yelling at you�
 
 ## RSpec Matcher Variety: Different Matchers, Different Messages
 
-Not all failure messages look exactly the same! RSpec matchers like `eq`, `be`, `include`, and others may produce slightly different output. For example:
+Not all failure messages look exactly the same! RSpec matchers produce different output formats. Here are the most commonly used matchers to help you recognize the patterns:
+
+---
+
+### 1. Equality Matcher (`eq`)
+
+**Test Code:**
+
+```ruby
+expect(recipe.name).to eq("Pancakes")
+```
+
+**Failure Message:**
+
+```shell
+Failure/Error: expect(recipe.name).to eq("Pancakes")
+  expected: "Pancakes"
+       got: "Toast"
+
+  (compared using ==)
+```
+
+---
+
+### 2. Include Matcher (`include`)
+
+**Test Code:**
 
 ```ruby
 expect(["Flour", "Egg"]).to include("Milk")
 ```
 
-Might produce:
+**Failure Message:**
 
 ```shell
 Failure/Error: expect(["Flour", "Egg"]).to include("Milk")
   expected ["Flour", "Egg"] to include "Milk"
 ```
 
-Reading the matcher-specific message helps you understand exactly what went wrong.
+---
+
+### 3. Be Matcher (`be`)
+
+**Test Code:**
+
+```ruby
+expect(recipe.ingredients.length).to be(3)
+```
+
+**Failure Message:**
+
+```shell
+Failure/Error: expect(recipe.ingredients.length).to be(3)
+  expected 2 to be 3
+```
 
 ---
+
+## More Matchers Available
+
+RSpec has many more matchers like `be_truthy`, `be_falsey`, `raise_error`, `match`, `be_empty`, `respond_to`, `be_instance_of`, `have_attributes`, and comparison matchers (`be >`, `be <`, etc.). Each follows the same pattern of showing expected vs actual values.
+
+## Key Takeaway
+
+Each matcher has its own failure message format, but they all follow a similar pattern: **they show you what you expected versus what you actually got**. The more you see these patterns, the faster you'll be able to diagnose test failures!
 
 ## Common Failure Types (With More Examples!)
 
@@ -252,15 +301,15 @@ Ready to practice? Here’s how to get started:
 1. **Fork and clone this repo to your own GitHub account.**
 2. **Install dependencies:**
 
-    ```zsh
-    bundle install
-    ```
+   ```zsh
+   bundle install
+   ```
 
 3. **Run the specs:**
 
-    ```zsh
-    bin/rspec
-    ```
+   ```zsh
+   bin/rspec
+   ```
 
 4. **Explore the code:**
 
@@ -299,4 +348,4 @@ Ready to practice? Here’s how to get started:
 
 Lab 2 is next! In Lab 2, you'll practice the Red/Green/Refactor cycle by TDD-ing a small Ruby class, like a Playlist, BankAccount, or TodoList. This lab reinforces the TDD principles from this lesson through step-by-step coding exercises, giving you hands-on experience with the workflow of writing, running, and fixing tests.
 
-*Next: You’ll learn how to DRY up your specs with before/after hooks and instance variables!*
+_Next: You’ll learn how to DRY up your specs with before/after hooks and instance variables!_
