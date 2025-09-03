@@ -53,7 +53,7 @@ RSpec.describe Recipe do
 
   it "fails if ingredient is present but with wrong case" do
     recipe.add_ingredient(egg)
-    expect(recipe.ingredient_names).to include("egg") # Fix this spec
+    expect(recipe.ingredient_names).not_to include("egg")
   end
 
   it "fails if ingredient is present but with wrong unit" do
