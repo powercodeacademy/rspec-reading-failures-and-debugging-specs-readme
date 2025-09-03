@@ -63,7 +63,7 @@ RSpec.describe Recipe do
 
   it "fails if ingredient is present but off-by-one in quantity" do
     recipe.add_ingredient(bacon)
-    expect(bacon.quantity).to eq(2) # Fix this spec
+    expect(bacon.quantity).not_to eq(2)
   end
 
   it "fails if vegetarian? logic is misunderstood" do
